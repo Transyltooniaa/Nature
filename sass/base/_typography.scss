@@ -1,0 +1,48 @@
+@use '../abstracts/variables' as variables;
+
+.heading--primary{
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+
+    /* bacface-visibility: hidden; is used to hide the text when it is not being animated and when it is being animated it will be visible */
+    /* used in old browsers */
+    backface-visibility: hidden; 
+
+    &-main{
+        font-size: 60px;
+        font-weight: 400;
+        letter-spacing: 35px;
+        display: block;
+        height: 50px;
+    
+        animation-name : moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+        /* animation-iteration-count: 3; */
+        /* animation-delay: 3s; */
+    }
+
+    &-sub{
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 17.4px;
+        display: block;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+    
+}
+
+
+
+body{
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7px;
+    color: variables.$color-grey-dark;
+    box-sizing: border-box;
+    padding:3 rem;
+} 

@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as variables;
+
+
+.btn{
+    /* link state is the default state of the link */
+&:link,
+&:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 26px 25px;
+    display: inline-block;
+    border-radius: 100px;
+
+    /* transition: all is used to apply the transition to all the properties */
+    transition: all .2s;
+    height: 55px;
+    width: 280px;
+    text-align: center;
+    position: relative;
+
+}
+
+&:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(variables.$color-black,.2);
+
+    &::after{
+        transform: scaleX(1.4) scaleY(1.6); 
+        opacity: 0;
+    }
+}
+
+
+
+&:active{
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(variables.$color-black,.2);
+}
+
+
+&-white{
+    background-color: variables.$color-white;
+    color: variables.$color-grey-dark;
+    
+    /* This is used to change the color of the after state */
+    /* After state is the state after the hover state */
+    &::after{
+        background-color: variables.$color-white;
+    }
+}
+
+
+
+&::after{
+    content:"";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+
+    /* This is used to make the after state to be applied after the hover state */
+    transition: all .4s;
+}
+
+
+&-animated{
+    animation: moveInBottom 1s ease-out .75s;
+    animation-fill-mode: backwards;
+}
+
+}
+
+
+

@@ -1,0 +1,176 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.heading--primary {
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  /* bacface-visibility: hidden; is used to hide the text when it is not being animated and when it is being animated it will be visible */
+  /* used in old browsers */
+  backface-visibility: hidden;
+}
+.heading--primary-main {
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  display: block;
+  height: 50px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 3s; */
+}
+.heading--primary-sub {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  display: block;
+  animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7px;
+  color: #777;
+  box-sizing: border-box;
+  padding: 3 rem;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(/img/hero.jpg);
+  background-size: cover;
+  /* This is used to make the background image fixed and the content will scroll over the image */
+  position: relative;
+  background-position: top; /* what it does is if you resize the window... It will crop the image from bottom and the top remains the same you can verify this by changing the field to bottom or center */
+  /* google search polygon css */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+.header__logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.header__logo {
+  /* control height ... width figured by browser */
+  height: 35px;
+}
+
+.btn {
+  /* link state is the default state of the link */
+}
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 26px 25px;
+  display: inline-block;
+  border-radius: 100px;
+  /* transition: all is used to apply the transition to all the properties */
+  transition: all 0.2s;
+  height: 55px;
+  width: 280px;
+  text-align: center;
+  position: relative;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  /* This is used to change the color of the after state */
+  /* After state is the state after the hover state */
+}
+.btn-white::after {
+  background-color: #fff;
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* This is used to make the after state to be applied after the hover state */
+  transition: all 0.4s;
+}
+.btn-animated {
+  animation: moveInBottom 1s ease-out 0.75s;
+  animation-fill-mode: backwards;
+}
+
+.logo:hover {
+  animation: moveInRight 1s ease-out;
+}
+
+/*# sourceMappingURL=style.css.map */
